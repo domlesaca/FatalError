@@ -1,4 +1,8 @@
-package gui;
+package gui.OldBoxes;
+import gui.Consts;
+import gui.CustomButton;
+import gui.MessageBoxState;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;

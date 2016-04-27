@@ -1,4 +1,7 @@
-package gui;
+package gui.OldBoxes;
+import gui.Consts;
+import gui.StateManager;
+
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

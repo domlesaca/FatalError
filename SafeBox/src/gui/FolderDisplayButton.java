@@ -1,5 +1,7 @@
 package gui;
 
+import gui.OldBoxes.RenameFolderBox;
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.MouseAdapter;

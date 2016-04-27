@@ -30,7 +30,27 @@ public class Consts {
 	protected static final String PEN_IMAGE = "res/buttons/pen.png";
 	
 	
-	
 	protected static final char ECHO_CHAR = '*';
+	
+	
+	protected static final int EMPTY_BORDER_TOP = 10;
+	protected static final int EMPTY_BORDER_BOTTOM = 10;
+	protected static final int EMPTY_BORDER_SIDE = 10;
+	protected static final int LABEL_HEIGHT = 36;
+	protected static final int LABEL_WIDTH = 300;
+	protected static final int BUTTON_HEIGHT = 36;
+	protected static final int BUTTON_WIDTH1 = 80;
+	protected static final int BUTTON_WIDTH2 = 150;
+	protected static final int BUTTON_BORDER_WIDTH = 2;
+	protected static final int TEXTFIELD_WIDTH = 300;
+	protected static final int TEXTFIELD_HEIGHT = 40;
+	protected static final int CustomDB_WIDTH = 450;
+	protected static final int CustomDB_HEIGHT2 = 180;
+	protected static final int CustomDB_HEIGHT3 = 180;
+	protected static final int CustomDB_HEIGHT4 = 180;
+	protected static final int CustomDB_HEIGHT5 = 400;
+	protected static final int CustomDB_HEIGHT6 = 400;
+	
+	
 
 }

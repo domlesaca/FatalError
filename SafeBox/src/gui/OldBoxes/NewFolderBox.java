@@ -1,4 +1,6 @@
-package gui;
+package gui.OldBoxes;
+
+import gui.StateManager;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
