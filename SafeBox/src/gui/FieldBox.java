@@ -62,6 +62,12 @@ public class FieldBox extends BackgroundPanel{
 		c.weighty = 0.25;
 		c.gridx = 0;
 		c.gridy = 1;
+		fieldData.addMouseListener(new MouseAdapter(){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				MiscUtils.setClipboard(((Record) sm.getESM().getFileSystemHandler().getCurrentRecord().getData()).getField(index).getData());
+			}
+		});
 		dataPanel.add(fieldData, c);
 		
 		CustomButton editButton = new CustomButton("", 0, 0, 40, 40);
