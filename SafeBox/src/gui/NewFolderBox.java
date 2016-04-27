@@ -38,8 +38,8 @@ public class NewFolderBox extends ModifyFolderBox {
 	
 	@Override
 	protected void resetBox(){
-		this.setVisible(false);
-		this.textField.setText(titleString);
+		setVisible(false);
+		textField.setText(titleString);
 	}
 
 	private boolean checkForValidText(String text){
