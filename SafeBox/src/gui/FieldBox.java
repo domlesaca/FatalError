@@ -26,7 +26,7 @@ public class FieldBox extends BackgroundPanel{
 	private int boarderWidth = 2;
 	private ModifyRecordBox editBox;
 	
-	public FieldBox( int x, int y, int width, int height, int index, final StateManager sm) {
+	public FieldBox( int x, int y, int width, int height, final int index, final StateManager sm) {
 		super(MiscUtils.getBufferedGradImage(Consts.ORANGE_PANEL_COLOUR_LIGHT, Consts.ORANGE_PANEL_COLOUR_DARK, width, height, true));
 		this.index = index;
 		editBox = new ModifyRecordBox(sm, index);
