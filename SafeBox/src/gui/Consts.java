@@ -25,7 +25,10 @@ public class Consts {
 	protected static final String PEN_IMAGE = "res/buttons/pen.png";
 	
 	
-	
+	protected static final String addRecordFolderTitle = "Create Record/Folder";
 	protected static final char ECHO_CHAR = '*';
-
+	protected static final int BUTTON_HEIGHT = 36;
+	protected static final int EMPTY_BORDER_TOP = 10;
+	protected static final int BUTTON_WIDTH = 130;
+	protected static final int CUSTOMBOX_HEIGHT1 = 180;
 }
