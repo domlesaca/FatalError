@@ -80,6 +80,7 @@ public class EditRecordFolderDialog extends CustomDialog {
 				sm.deleteDialog.open();
 				if(sm.deleteDialog.getConfirmation()){
 					deleteFolder(sm, index);
+					sm.update();
 					close();
 				}
 			}
@@ -88,6 +89,7 @@ public class EditRecordFolderDialog extends CustomDialog {
 			public void mouseClicked(MouseEvent e){
 				if(isValidText(textField.getText())){
 					renameFolder(textField.getText(),sm);
+					sm.update();
 					close();
 				}
 				else{
