@@ -26,6 +26,11 @@ public class EditRecordFolderDialog extends CustomDialog {
 	private static String name;
 	private final String error = "Not a valid name";
 	private int index;
+	private static final int TITLE_FONT_SIZE = 24;
+	private static final int NAME_FONT_SIZE = 20;
+	private static final int CENTER_PANEL_TOP = 20;
+	private static final int CENTER_PANEL_BOTTOM = 20;
+	private static final int SOUTH_PANEL_HGAP = 10;
 	
 	private JLabel titleLabel;
 	private JLabel nameLabel;
@@ -42,8 +47,8 @@ public class EditRecordFolderDialog extends CustomDialog {
 		titleLabel = new JLabel(title);
 		nameLabel = new JLabel(name);
 		northPanel.setLayout(new BorderLayout());
-		titleLabel.setFont(new Font(Consts.FONT_STYLE, Font.BOLD, 24));
-		nameLabel.setFont(new Font(Consts.FONT_STYLE, Font.ITALIC, 20));
+		titleLabel.setFont(new Font(Consts.FONT_STYLE, Font.BOLD, TITLE_FONT_SIZE));
+		nameLabel.setFont(new Font(Consts.FONT_STYLE, Font.ITALIC, NAME_FONT_SIZE));
 		//northPanel.setPreferredSize
 		northPanel.add(titleLabel, BorderLayout.WEST);
 		northPanel.add(nameLabel, BorderLayout.CENTER);
@@ -51,15 +56,15 @@ public class EditRecordFolderDialog extends CustomDialog {
 		// --------------------Center panel----------------------------------
 		centerPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		textField = new JTextField(initTextField);
-		centerPanel.setBorder(new EmptyBorder(20,0,20,0));
+		centerPanel.setBorder(new EmptyBorder(CENTER_PANEL_TOP,0,CENTER_PANEL_BOTTOM,0));
 		textField.setPreferredSize(Consts.DIALOGUE_TEXT_FIELD_DIMENSION);
 		centerPanel.add(textField);
 
 		// --------------------South panel----------------------------------
-		southPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 0));
-		cancelButton = setupButton(cancel, 120, 36);
-		deleteButton = setupButton(delete, 120, 36);
-		renameButton = setupButton(rename, 120, 36);
+		southPanel.setLayout(new FlowLayout(FlowLayout.CENTER, SOUTH_PANEL_HGAP, 0));
+		cancelButton = setupButton(cancel, Consts.EDIT_DIALOGUE_BUTTONS_WIDTH, Consts.EDIT_DIALOGUE_BUTTONS_HEIGHT);
+		deleteButton = setupButton(delete, Consts.EDIT_DIALOGUE_BUTTONS_WIDTH, Consts.EDIT_DIALOGUE_BUTTONS_HEIGHT);
+		renameButton = setupButton(rename, Consts.EDIT_DIALOGUE_BUTTONS_WIDTH, Consts.EDIT_DIALOGUE_BUTTONS_HEIGHT);
 		southPanel.add(cancelButton);
 		southPanel.add(deleteButton);
 		southPanel.add(renameButton);

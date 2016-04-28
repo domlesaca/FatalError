@@ -21,6 +21,8 @@ public class Consts {
 	protected static final Color ORANGE_PANEL_COLOUR_DARK2 = new Color(215, 165, 0);
 	protected static final Color ORANGE_PANEL_COLOUR_BORDER2 = new Color(215, 155, 0);
 	
+	protected static final int EDIT_DIALOGUE_BUTTONS_WIDTH = 120;
+	protected static final int EDIT_DIALOGUE_BUTTONS_HEIGHT = 36;
 	protected static final Dimension DIALOGUE_TEXT_FIELD_DIMENSION = new Dimension(300, 30);
 	protected static final String FONT_STYLE = "Arial";
 	protected static final String PEN_IMAGE = "pen.png";
@@ -29,6 +31,9 @@ public class Consts {
 	
 	
 	protected static final char ECHO_CHAR = '*';
-	protected final static String PATH = "res/buttons/";
+	protected final static String BUTTON_PATH = "res/buttons/";// this should be called something like BUTTON_PATH, please rename when it won't case massive conflicts
+	protected final static String LOGO_PATH = "res/logos/";
+	 
+}
 
 }
