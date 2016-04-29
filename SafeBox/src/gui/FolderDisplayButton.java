@@ -50,9 +50,10 @@ public class FolderDisplayButton extends BackgroundPanel{
 		
 		CustomButton button = new CustomButton(text, 0, 0, FOLDER_BUTTON_WIDTH, FOLDER_BUTTON_WIDTH);
 		button.setHorizontalAlignment(SwingConstants.LEFT);
-		button.setHorizontalTextPosition(JButton.RIGHT);
+		button.setHorizontalTextPosition(SwingConstants.RIGHT);
 		button.setImageFromFile(imgName, true);
 		button.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mousePressed(MouseEvent e) {
 				pressed(e);
 			}
@@ -70,12 +71,14 @@ public class FolderDisplayButton extends BackgroundPanel{
 						true);
 		edit.setHorizontalAlignment(SwingConstants.RIGHT);
 		edit.addMouseListener(new MouseAdapter(){
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				editRecordFolder.open();
 			}
 		});
 		
 		addMouseListener(new MouseAdapter() {
+			@Override
 			public void mousePressed(MouseEvent e) {
 				pressed(e);
 			}

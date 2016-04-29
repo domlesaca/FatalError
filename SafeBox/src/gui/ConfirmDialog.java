@@ -1,14 +1,12 @@
 package gui;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 public class ConfirmDialog extends CustomDialog {
@@ -49,12 +47,14 @@ public class ConfirmDialog extends CustomDialog {
 		southPanel.add(rightButton);
 		// --------------------Listeners----------------------------------
 		leftButton.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e){
 				confirm = false;
 				close();
 			}
 		});
 		rightButton.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e){
 				confirm = true;
 				close();

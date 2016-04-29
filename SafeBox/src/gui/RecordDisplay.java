@@ -3,15 +3,12 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.border.Border;
 
 import core.Field;
@@ -62,7 +59,7 @@ public class RecordDisplay extends BackgroundPanel {
 		
 		fViewer = new JPanel(new BorderLayout());
 		fieldPanel = new JPanel(new GridBagLayout());
-		scrollPane = new JScrollPane(fViewer, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane = new JScrollPane(fViewer, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.getVerticalScrollBar().setUnitIncrement(UNIT_INCREMENT);
 		
 		
@@ -77,6 +74,7 @@ public class RecordDisplay extends BackgroundPanel {
 
 		
 		addFieldButton.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				Field f = new Field();
 				f.setName(English.NAME);

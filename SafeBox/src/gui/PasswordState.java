@@ -15,7 +15,6 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
@@ -93,6 +92,7 @@ public class PasswordState extends BackgroundPanel{
 		passWordField.setHorizontalAlignment(SwingConstants.CENTER);
 		resetPasswordField(passWordField);
 		passWordField.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(isInitTextField(passWordField.getPassword())){
 					passWordField.setText("");
@@ -102,8 +102,9 @@ public class PasswordState extends BackgroundPanel{
 			}
 		});
 		passWordField.addKeyListener(new KeyAdapter() {
+			@Override
 			public void keyPressed(KeyEvent e){
-				if (e.getKeyCode() == e.VK_ENTER){
+				if (e.getKeyCode() == KeyEvent.VK_ENTER){
 					validatePasswordAndMoveForward(passWordField);
 				}
 			}
@@ -115,6 +116,7 @@ public class PasswordState extends BackgroundPanel{
 		setTransparentAdd(true);
 		CustomButton enterSBButton = setupButton(English.ENTER_SAFEBOX_TITLE);
 		enterSBButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				validatePasswordAndMoveForward(passWordField);
 				init();
@@ -127,6 +129,7 @@ public class PasswordState extends BackgroundPanel{
 		c.gridy += 1;
 		CustomButton forgotPWButton = setupButton(English.FORGOT_PASSWORD_TITLE);
 		forgotPWButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				sm.showPlainMessage(HintManager.getHint());
 				init();
@@ -137,6 +140,7 @@ public class PasswordState extends BackgroundPanel{
 		
 		add(centerPanel, BorderLayout.CENTER);
 		addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(passWordField.getPassword().length == 0){
 					resetPasswordField(passWordField);

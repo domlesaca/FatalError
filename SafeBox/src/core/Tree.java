@@ -56,6 +56,7 @@ public class Tree implements Serializable{
 	public int getMaxGlobalIndex(){
 		return maxGlobalIndex;
 	}
+	@Override
 	public String toString(){
 		return "Tree [\n" + root.deepToString() + "]";
 	}

@@ -2,14 +2,13 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 public class CustomButton extends JButton{
 
@@ -25,8 +24,8 @@ public class CustomButton extends JButton{
 		setBorder(null);
 		setContentAreaFilled(false);
 		
-		setHorizontalTextPosition(JButton.CENTER);
-		setVerticalTextPosition(JButton.CENTER);
+		setHorizontalTextPosition(SwingConstants.CENTER);
+		setVerticalTextPosition(SwingConstants.CENTER);
 		setForeground(Color.WHITE);
 		setFont(new Font(Consts.FONT_STYLE, Font.PLAIN, (int)(getHeight() * FONT_MULTIPLIER)));
 	}

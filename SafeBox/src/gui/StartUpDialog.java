@@ -18,7 +18,6 @@ import javax.swing.JTextField;
 
 import core.EncryptedStorageManager;
 import core.HintManager;
-import core.PlainDataManager;
 
 public class StartUpDialog extends CustomDialog{
 	
@@ -131,6 +130,7 @@ public class StartUpDialog extends CustomDialog{
 			}
 		});
 		hint.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e){
 				
 			}
@@ -143,6 +143,7 @@ public class StartUpDialog extends CustomDialog{
 		
 		done = setupButton(English.DONE, 120, 36);
 		done.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mousePressed(MouseEvent e){
 				configureNewPasswordAndClose(password.getPassword(), confirmPassword.getPassword(), hint.getText());
 			}
@@ -150,6 +151,7 @@ public class StartUpDialog extends CustomDialog{
 		
 		exit = setupButton(English.EXIT, 120, 36);
 		exit.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mousePressed(MouseEvent e){
 				System.exit(0);
 			}

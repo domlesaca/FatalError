@@ -22,6 +22,7 @@ public class Folder implements Serializable{
 		return name;
 	}
 	
+	@Override
 	public String toString(){
 		String output = name + "(Folder)";
 		return output;

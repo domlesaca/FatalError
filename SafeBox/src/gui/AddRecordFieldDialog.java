@@ -1,15 +1,10 @@
 package gui;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -47,6 +42,7 @@ public class AddRecordFieldDialog extends CustomDialog{
 		
 		cancelButton = setupButton(English.CANCEL, Consts.DIALOGUE_BOX_BUTTON_WIDTH, Consts.DIALOGUE_BOX_BUTTON_HEIGHT);
 		cancelButton.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e){
 				close();
 			}
@@ -54,6 +50,7 @@ public class AddRecordFieldDialog extends CustomDialog{
 		
 		addRecordButton = setupButton(English.ADD_RECORD, Consts.DIALOGUE_BOX_BUTTON_WIDTH, Consts.DIALOGUE_BOX_BUTTON_HEIGHT);
 		addRecordButton.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e){
 				if(isValidName(textField.getText())){
 					addRecord();
@@ -66,6 +63,7 @@ public class AddRecordFieldDialog extends CustomDialog{
 		});
 		addFolderButton = setupButton(English.ADD_FOLDER, Consts.DIALOGUE_BOX_BUTTON_WIDTH, Consts.DIALOGUE_BOX_BUTTON_HEIGHT);
 		addFolderButton.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e){
 				if(isValidName(textField.getText())){
 					addFolder();
@@ -78,6 +76,7 @@ public class AddRecordFieldDialog extends CustomDialog{
 		});
 
 		addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				if ("".equals(textField.getText())){
 					textField.setText(English.EMPTY);

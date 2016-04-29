@@ -2,7 +2,6 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
@@ -65,11 +64,13 @@ public class EditRecordFolderDialog extends CustomDialog {
 		
 		// --------------------Listeners----------------------------------
 		cancelButton.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e){
 				close();
 			}
 		});
 		deleteButton.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e){
 				sm.confirmDialog.setMessage(English.DELETE_RF_MESSAGE);
 				sm.confirmDialog.setButtonText(English.CANCEL, English.DELETE);
@@ -82,6 +83,7 @@ public class EditRecordFolderDialog extends CustomDialog {
 			}
 		});
 		renameButton.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e){
 				if(isValidText(textField.getText())){
 					renameFolder(textField.getText(),sm);
@@ -94,6 +96,7 @@ public class EditRecordFolderDialog extends CustomDialog {
 			}
 		});
 		textField.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e){
 				if(textField.getText().equals(English.NEW_NAME)){
 					textField.setText("");
@@ -101,6 +104,7 @@ public class EditRecordFolderDialog extends CustomDialog {
 			}
 		});
 		addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e){
 				if("".equals(textField.getText())){
 					textField.setText(English.NEW_NAME);

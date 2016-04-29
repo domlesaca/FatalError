@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
@@ -128,6 +127,7 @@ public class SettingsDialog extends CustomDialog {
 		});
 	
 		addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				resetPasswordField(currentPasswordField, English.CURRENT_PASSWORD);
 				resetPasswordField(newPasswordField, English.NEW_PASSWORD);
@@ -139,12 +139,14 @@ public class SettingsDialog extends CustomDialog {
 		});
 		
 		cancelButton.addMouseListener(new MouseAdapter(){
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				close();
 			}
 		});
 		
 		saveButton.addMouseListener(new MouseAdapter(){
+			@Override
 			public void mouseClicked(MouseEvent e) {				
 				if (sm.getESM().isCurrentPassword(currentPasswordField.getPassword())){
 					if (!sm.getESM().passwordMeetsRequirements(newPasswordField.getPassword())){

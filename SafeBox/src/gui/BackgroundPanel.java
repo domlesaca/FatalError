@@ -1,6 +1,5 @@
 package gui;
 import java.awt.*;
-import java.awt.image.*;
 import javax.swing.*;
 
 public class BackgroundPanel extends JPanel

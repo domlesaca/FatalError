@@ -118,6 +118,7 @@ public class Node implements Serializable{
 //		return "[name=" + getData().getName() + ", localIndex=" + getLocalIndex() + ", globaIndex=" + getGlobalIndex() + ", children.size()=" + getChildren().size() + "]";
 //	}
 	
+	@Override
 	public String toString(){
 		String outputString = data.getName();
 		if(children.size() == 0){

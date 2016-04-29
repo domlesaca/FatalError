@@ -2,10 +2,8 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridBagLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -69,11 +67,13 @@ public class EditFieldDialog extends CustomDialog {
 		
 		// --------------------Listeners----------------------------------
 		cancelButton.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e){
 				close();
 			}
 		});
 		deleteButton.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e){
 				sm.confirmDialog.setMessage(English.DELETE_MESSAGE);
 				sm.confirmDialog.open();
@@ -86,6 +86,7 @@ public class EditFieldDialog extends CustomDialog {
 			}
 		});
 		renameButton.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e){
 				if(checkForValidText(nameTextField.getText()) && checkForValidText(nameTextField.getText())){
 					fieldName = nameTextField.getText();
@@ -102,6 +103,7 @@ public class EditFieldDialog extends CustomDialog {
 			}
 		});
 		nameTextField.addMouseListener(new MouseAdapter(){
+			@Override
 			public void mouseClicked(MouseEvent e){
 				if (nameTextField.getText().equals(fieldName)) {
 					nameTextField.setText("");
@@ -109,6 +111,7 @@ public class EditFieldDialog extends CustomDialog {
 			}
 		});
 		contentTextField.addMouseListener(new MouseAdapter(){
+			@Override
 			public void mouseClicked(MouseEvent e){
 				if (contentTextField.getText().equals(fieldContent)) {
 					contentTextField.setText("");
@@ -116,6 +119,7 @@ public class EditFieldDialog extends CustomDialog {
 			}
 		});
 		addMouseListener(new MouseAdapter(){
+			@Override
 			public void mouseClicked(MouseEvent e){
 				if (contentTextField.getText().equals("")) {
 					contentTextField.setText(fieldContent);

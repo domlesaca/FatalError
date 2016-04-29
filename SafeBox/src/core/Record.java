@@ -50,6 +50,7 @@ public class Record extends Folder{
 		fields.set(field2, temp);
 	}
 	
+	@Override
 	public String toString(){
 		String output = "\n" + getName();
 		int length = fields.size();
@@ -59,6 +60,7 @@ public class Record extends Folder{
 		return output;
 	}
 	
+	@Override
 	public boolean isRecord(){
 		return true;
 	}

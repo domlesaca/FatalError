@@ -9,18 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
-
 import core.FileSystemHandler;
 import core.Folder;
 import core.Node;
@@ -92,6 +88,7 @@ public class SearchBar extends BackgroundPanel{
 		CustomButton settingsButton = new CustomButton("", 0, 0, buttonWidth, buttonHeight);
 		settingsButton.setImageFromFile(Consts.GEAR_IMAGE, true);
 		settingsButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				settingsBox.open();
 			}
@@ -114,19 +111,25 @@ public class SearchBar extends BackgroundPanel{
 		searchBox.setPreferredSize(new Dimension(SEARCH_BOX_WIDTH, (int)(BAR_HEIGHT * HEIGHT_RATIO)));
 		searchBox.setOpaque(true);
 		searchBox.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				executeSearch(sm, searchBox.getText());
 			}
 		});
 		searchBox.addMouseListener(new MouseListener() {
+			@Override
 			public void mouseReleased(MouseEvent e) {}
+			@Override
 			public void mousePressed(MouseEvent e) {
 				if (searchBox.getText().equals(English.SEARCH)){
 					searchBox.setText("");
 				}
 			}
+			@Override
 			public void mouseExited(MouseEvent e) {}
+			@Override
 			public void mouseEntered(MouseEvent e) {}
+			@Override
 			public void mouseClicked(MouseEvent e) {}
 		});
 		
@@ -136,6 +139,7 @@ public class SearchBar extends BackgroundPanel{
 		searchButton.setGradientBackground(Consts.BUTTON_COLOUR_DARK, Consts.BUTTON_COLOUR_LIGHT, true);
 		searchButton.setBoarderDetails(Consts.BLUE_PANEL_COLOUR_BORDER, SEARCH_BUTTON_BORDER_WIDTH);
 		searchButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				executeSearch(sm, searchBox.getText());
 			}
@@ -160,6 +164,7 @@ public class SearchBar extends BackgroundPanel{
 		CustomButton logOutButton = new CustomButton("", 0,0,LOGOUT_BUTTON_WIDTH,LOGOUT_BUTTON_HEIGHT);
 		logOutButton.setImageIcon(MiscUtils.getBufferedImageFromFile(LARGE_LOGO_IMAGE, logOutButton.getWidth()), false);
 		logOutButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(sm.isSuccessfullyDecrypted()){
 					sm.getESM().saveFileSystemHandler();

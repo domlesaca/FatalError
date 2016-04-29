@@ -9,13 +9,12 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.HashMap;
-
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
@@ -92,7 +91,7 @@ public class FolderDisplay extends BackgroundPanel{
 		
 		fViewer = new JPanel(new BorderLayout());
 		folderPanel = new JPanel(new GridBagLayout());
-		scrollPane = new JScrollPane(fViewer, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane = new JScrollPane(fViewer, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.getVerticalScrollBar().setUnitIncrement(UNIT_INCREMENT);
 		scrollPane.setBorder(null);
 		bottomBar = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -105,6 +104,7 @@ public class FolderDisplay extends BackgroundPanel{
 		
 		CustomButton backButton = setupToolBarButton(Consts.IMG_BACK);
 		backButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				currentNode = getCurrentNode();
 				if(getFSH().getRoot() != currentNode){
@@ -122,6 +122,7 @@ public class FolderDisplay extends BackgroundPanel{
 		
 		CustomButton homeButton = setupToolBarButton(Consts.IMG_HOME);
 		homeButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				currentNode = getCurrentNode();
 				if(getFSH().getRoot() != currentNode){
@@ -142,8 +143,9 @@ public class FolderDisplay extends BackgroundPanel{
 		CustomButton addRecordOrField = new CustomButton(English.ADD_RECORD_FOLDER_TITLE, 0, 0, ADD_BUTTON_DIMENSION, ADD_BUTTON_DIMENSION);
 		addRecordOrField.setImageFromFile(Consts.IMG_PLUS, true);
 		addRecordOrField.setHorizontalAlignment(SwingConstants.LEFT);
-		addRecordOrField.setHorizontalTextPosition(JButton.RIGHT);
+		addRecordOrField.setHorizontalTextPosition(SwingConstants.RIGHT);
 		addRecordOrField.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(currentNode.getGlobalIndex() != -1)
 					addRecordField.open();

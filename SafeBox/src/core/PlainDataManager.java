@@ -1,8 +1,4 @@
 package core;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.HashMap;
 
 public class PlainDataManager {
@@ -26,7 +22,7 @@ public class PlainDataManager {
 		if (data == null) {
 			attemptToLoadFromFile();
 		}
-		return (String) data.get(element);
+		return data.get(element);
 	}
 	
 	/**

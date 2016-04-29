@@ -1,9 +1,6 @@
 package gui;
 
-import java.awt.AlphaComposite;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Container;
 import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -63,8 +60,8 @@ public class MiscUtils {
 			e.printStackTrace();
 		}
 		scale = (float)width / (float)img.getWidth(null);
-		BufferedImage bi = new BufferedImage((int)(scale * (float)img.getWidth(null)),
-												(int)(scale * (float)img.getHeight(null)),
+		BufferedImage bi = new BufferedImage((int)(scale * img.getWidth(null)),
+												(int)(scale * img.getHeight(null)),
 												BufferedImage.TYPE_INT_ARGB);
 		
 		Graphics2D g2d = (Graphics2D) bi.getGraphics();
