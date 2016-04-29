@@ -1,6 +1,5 @@
 package core;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,8 +8,10 @@ import java.nio.file.Paths;
 public class StorageManager {
 
 	/**
-	 * @param data bytes being saved
-	 * @param file the name of the file being saved to
+	 * @param data
+	 *            bytes being saved
+	 * @param file
+	 *            the name of the file being saved to
 	 * @return whether or not it was saved
 	 */
 	protected static boolean saveToFile(byte[] data, String file) {
@@ -21,9 +22,10 @@ public class StorageManager {
 		}
 		return true;
 	}
-	
+
 	/**
-	 * @param file the name of the file bing read from
+	 * @param file
+	 *            the name of the file bing read from
 	 * @return the bytes read from the file
 	 */
 	protected static byte[] readFromFile(String file) {
@@ -35,21 +37,23 @@ public class StorageManager {
 		}
 		return null;
 	}
-	
+
 	/**
-	 * @param file the name of the file
+	 * @param file
+	 *            the name of the file
 	 * @return whether the file exists
 	 */
 	protected static boolean fileExists(String file) {
-		if (file == null){
+		if (file == null) {
 			return false;
 		}
-		
+
 		return new File(file).exists();
 	}
-	
+
 	/**
-	 * @param file the name of the file to delete
+	 * @param file
+	 *            the name of the file to delete
 	 * @return true if deleted, otherwise false
 	 */
 	protected static boolean deleteFile(String file) {

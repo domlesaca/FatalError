@@ -5,6 +5,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -15,64 +16,56 @@ import core.Field;
 import core.Node;
 import core.Record;
 
-	
-
 public class RecordDisplay extends BackgroundPanel {
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1255356460279101185L;
 	private static final int DISPLAY_WIDTH = 250;
 	private Border border;
 	private int boarderWidth = 3;
-	
+
 	private StateManager sm;
-	
+
 	private GridBagConstraints c = new GridBagConstraints();
 	private GridBagConstraints g = new GridBagConstraints();
-	
+
 	private JPanel fViewer;
 	private JPanel fieldPanel;
 	private JScrollPane scrollPane;
-	
-	
-	
+
 	private static final int RECORD_TOOL_BAR_HEIGHT = 40;
 	private static final int UNIT_INCREMENT = 5;
-	
+
 	private RecordToolBar recordToolBar;
 	private CustomButton addFieldButton;
 	private Node currentRecord;
-	
-	protected RecordDisplay(final StateManager sm){
+
+	protected RecordDisplay(final StateManager sm) {
 		super(MiscUtils.getBufferedGradImage(Consts.ORANGE_PANEL_COLOUR_LIGHT, Consts.ORANGE_PANEL_COLOUR_DARK, DISPLAY_WIDTH, sm.window.getHeight(), true));
 		this.sm = sm;
 		border = BorderFactory.createMatteBorder(boarderWidth, boarderWidth, boarderWidth, boarderWidth, Consts.ORANGE_PANEL_COLOUR_DARK);
 		setBorder(border);
 		setOpaque(true);
-		
-		setLayout(new GridBagLayout());
-		
 
-		
-		
-		//-------------------TOOLBAR--------------------
+		setLayout(new GridBagLayout());
+
+		// -------------------TOOLBAR--------------------
 		recordToolBar = new RecordToolBar(sm, DISPLAY_WIDTH, RECORD_TOOL_BAR_HEIGHT);
-		
-		//-------------------CENTERBOX---------------------
-		
+
+		// -------------------CENTERBOX---------------------
+
 		fViewer = new JPanel(new BorderLayout());
 		fieldPanel = new JPanel(new GridBagLayout());
 		scrollPane = new JScrollPane(fViewer, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.getVerticalScrollBar().setUnitIncrement(UNIT_INCREMENT);
-		
-		
-		
-		//-------------------BOTTOMBAR---------------------
-		
-		
-		
+
+		// -------------------BOTTOMBAR---------------------
+
 		addFieldButton = new CustomButton(English.ADD_FIELD, 0, 0, 100, 30);
 		addFieldButton.setGradientBackground(Consts.BUTTON_COLOUR_LIGHT, Consts.BUTTON_COLOUR_DARK, true);
 		addFieldButton.setBoarderDetails(Consts.BUTTON_COLOUR_BORDER, 2);
 
-		
 		addFieldButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -82,14 +75,13 @@ public class RecordDisplay extends BackgroundPanel {
 				((Record) sm.getESM().getFileSystemHandler().getCurrentRecord().getData()).addField(f);
 				init();
 				update();
-				
+
 			}
 		});
-		
+
 		fViewer.add(fieldPanel, BorderLayout.NORTH);
 		fViewer.add(addFieldButton, BorderLayout.PAGE_END);
-		
-		
+
 		setTransparentAdd(true);
 		g.weightx = 1;
 		g.fill = GridBagConstraints.HORIZONTAL;
@@ -103,28 +95,28 @@ public class RecordDisplay extends BackgroundPanel {
 		g.gridx = 0;
 		g.gridy = 1;
 		add(scrollPane, g);
-		
+
 	}
-	
-	protected void init(){
+
+	protected void init() {
 		setVisible(false);
 	}
-	
-	protected void update(){
+
+	protected void update() {
 		currentRecord = sm.getESM().getFileSystemHandler().getCurrentRecord();
-		if(currentRecord != null){
+		if (currentRecord != null) {
 			setVisible(true);
 			recordToolBar.update();
 			fieldPanel.removeAll();
 			fieldPanel.repaint();
-			
-			///-------------------------------------------------------------
-			
-			Record recordData = (Record)currentRecord.getData();
-			if (recordData.isRecord()){
+
+			/// -------------------------------------------------------------
+
+			Record recordData = (Record) currentRecord.getData();
+			if (recordData.isRecord()) {
 				FieldBox fb;
-				for(int i = 0; i < recordData.getFields().size(); i ++){
-					fb = new FieldBox(0,0, 10, 60, i, sm);
+				for (int i = 0; i < recordData.getFields().size(); i++) {
+					fb = new FieldBox(0, 0, 10, 60, i, sm);
 					fb.setAlignmentY(TOP_ALIGNMENT);
 					c.weightx = 1;
 					c.fill = GridBagConstraints.HORIZONTAL;
@@ -137,8 +129,8 @@ public class RecordDisplay extends BackgroundPanel {
 				}
 			}
 
-			//-------------------------------------------------------------
-			
+			// -------------------------------------------------------------
+
 			revalidate();
 			repaint();
 
@@ -149,7 +141,5 @@ public class RecordDisplay extends BackgroundPanel {
 			setVisible(false);
 		}
 	}
-	
+
 }
-
-

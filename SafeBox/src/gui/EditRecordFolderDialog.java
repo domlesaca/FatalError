@@ -14,20 +14,20 @@ import javax.swing.border.EmptyBorder;
 public class EditRecordFolderDialog extends CustomDialog {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -3569511422230983023L;
-	
+
 	private static String name;
 	private int index;
-	
+
 	private JLabel titleLabel;
 	private JLabel nameLabel;
 	private JTextField textField;
 	private CustomButton cancelButton;
 	private CustomButton deleteButton;
 	private CustomButton renameButton;
-	
+
 	private static final int NAME_FONT_SIZE = 20;
 	private static final int CENTER_PANEL_TOP = 20;
 	private static final int CENTER_PANEL_BOTTOM = 20;
@@ -49,7 +49,7 @@ public class EditRecordFolderDialog extends CustomDialog {
 		// --------------------Center panel----------------------------------
 		centerPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		textField = new JTextField(name);
-		centerPanel.setBorder(new EmptyBorder(CENTER_PANEL_TOP,0,CENTER_PANEL_BOTTOM,0));
+		centerPanel.setBorder(new EmptyBorder(CENTER_PANEL_TOP, 0, CENTER_PANEL_BOTTOM, 0));
 		textField.setPreferredSize(Consts.DIALOGUE_TEXT_FIELD_DIMENSION);
 		centerPanel.add(textField);
 
@@ -61,21 +61,21 @@ public class EditRecordFolderDialog extends CustomDialog {
 		southPanel.add(cancelButton);
 		southPanel.add(deleteButton);
 		southPanel.add(renameButton);
-		
+
 		// --------------------Listeners----------------------------------
 		cancelButton.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e){
+			public void mouseClicked(MouseEvent e) {
 				close();
 			}
 		});
 		deleteButton.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e){
+			public void mouseClicked(MouseEvent e) {
 				sm.confirmDialog.setMessage(English.DELETE_RF_MESSAGE);
 				sm.confirmDialog.setButtonText(English.CANCEL, English.DELETE);
 				sm.confirmDialog.open();
-				if(sm.confirmDialog.getConfirmation()){
+				if (sm.confirmDialog.getConfirmation()) {
 					deleteFolder(sm, index);
 					sm.update();
 					close();
@@ -84,63 +84,60 @@ public class EditRecordFolderDialog extends CustomDialog {
 		});
 		renameButton.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e){
-				if(isValidText(textField.getText())){
-					renameFolder(textField.getText(),sm);
+			public void mouseClicked(MouseEvent e) {
+				if (isValidText(textField.getText())) {
+					renameFolder(textField.getText(), sm);
 					sm.update();
 					close();
-				}
-				else{
+				} else {
 					sm.showPlainMessage(English.NOT_VALID_NAME);
 				}
 			}
 		});
 		textField.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e){
-				if(textField.getText().equals(English.NEW_NAME)){
+			public void mouseClicked(MouseEvent e) {
+				if (textField.getText().equals(English.NEW_NAME)) {
 					textField.setText("");
 				}
 			}
 		});
 		addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e){
-				if("".equals(textField.getText())){
+			public void mouseClicked(MouseEvent e) {
+				if ("".equals(textField.getText())) {
 					textField.setText(English.NEW_NAME);
 				}
 			}
 		});
 	}
-	
+
 	protected void renameFolder(String text, StateManager sm) {
 		sm.getESM().getFileSystemHandler().getCurrent().getChild(index).getData().setName(text);
-		sm.update();		
+		sm.update();
 	}
 
 	protected void deleteFolder(StateManager sm, int i) {
 		sm.getESM().getFileSystemHandler().deleteFolder(sm.getESM().getFileSystemHandler().getCurrent(), i);
-		sm.update();		
+		sm.update();
 	}
-	
 
-	private String getName(int i, StateManager sm){
+	private String getName(int i, StateManager sm) {
 		return sm.getESM().getFileSystemHandler().getCurrent().getChild(i).getData().getName();
 	}
-	
-	private boolean isValidText(String text){
-		if(text.equals(English.NEW_NAME) || "".equals(text) || text.equals(" ")){
+
+	private boolean isValidText(String text) {
+		if (text.equals(English.NEW_NAME) || "".equals(text) || text.equals(" ")) {
 			return false;
-		}
-		else{
+		} else {
 			return true;
 		}
 	}
-	
+
 	@Override
-		protected void init() {
-			// TODO Auto-generated method stub
-			
-		}
+	protected void init() {
+		// TODO Auto-generated method stub
+
+	}
 
 }
